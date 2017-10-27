@@ -22,10 +22,12 @@ set_of_uniq_words = Counter(list_of_all_words).most_common()
 output_file = open(output_filename, 'w+')
 potential_abbreviations_file = open(potential_abbreviations_filename, 'w+')
 
-for word in set_of_uniq_words:
-    output_file.write(str(word[1]) + " " + word[0] + '\n')
-    if(collect_potential_abbreviations and '.' in word and '..' not in word):
-        potential_abbreviations_file.write(str(word[1]) + " " + word[0] + '\n')
+for word_and_count in set_of_uniq_words:
+    count = word_and_count[1]
+    word = word_and_count[0]
+    output_file.write(str(count) + " " + word + '\n')
+    if(collect_potential_abbreviations and '.' in word):
+        potential_abbreviations_file.write(str(count) + " " + word + '\n')
 
 output_file.close()
 potential_abbreviations_file.close()
