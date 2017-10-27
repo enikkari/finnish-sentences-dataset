@@ -10,3 +10,7 @@ This segmentation is lacking and the dataset will be improved in the future.
 The dataset also contains occasional sentences in swedish and english.
 
 The sentences are located in file yle-vaalikone-2017.txt
+
+The original Yle data files are 
+candidate_answer_data_aluekysymykset11042017.csv
+candidate_answer_data_kokomaa11042017.csv
