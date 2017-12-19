@@ -8,7 +8,7 @@ def dd(s: str):
 class TrieJumper:
 
     def __init__(self):
-        self.root = Leaf('')
+        self.root = Leaf(' ')
 
     def add_word(self, word: str):
         in_leaf = self.root
@@ -18,7 +18,7 @@ class TrieJumper:
                 dd('add child')
                 in_leaf = in_leaf.add_child(c)
             else:
-                dd('go to dext leaf')
+                dd('go to next leaf')
                 in_leaf = next_leaf
         in_leaf.add_child('END')
 

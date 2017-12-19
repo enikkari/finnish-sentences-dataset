@@ -2,10 +2,12 @@
 import re
 from utils.trie import TrieJumper
 
-def read_wordlist_from_file(filename):
+
+def read_wordlist_from_file(filename: str):
     with open(filename, 'r+') as f:
         read_data = f.read()
     return sorted(re.findall('[0-9]* *([^0-9]*)\n', read_data)) # return without counts in the beginning
+
 
 def split_string_to_sentences(text, abbreviations):
     # TODO : take into account digits <d>
@@ -34,9 +36,14 @@ def split_string_to_sentences(text, abbreviations):
     return sentences
 
 
-abbreviations_list_filename = "manual_abbreviations_list.txt"
-abbreviations_list = read_wordlist_from_file(abbreviations_list_filename)
+def split_string_to_sentences_with_default(text):
+    abbreviations_list_filename = "manual_abbreviations_list.txt"
+    abbreviations_list = read_wordlist_from_file(abbreviations_list_filename)
+    return split_string_to_sentences(text, abbreviations_list)
 
-test_s = "Testilause. Onko tämä lause?Älä huuda!.. esim. tämä toimii jo. Mutta numerot kuten 123.123.123 eivät."
-sentences = split_string_to_sentences(test_s, abbreviations_list)
-print(sentences)
+
+# example
+# print(split_string_to_sentences_with_default("wererw. wer Yms. ewrwe.wer wer wer"))
+
+
+
